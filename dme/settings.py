@@ -51,6 +51,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware'
 ]
 
 ROOT_URLCONF = 'dme.urls'
@@ -86,12 +87,16 @@ WSGI_APPLICATION = 'dme.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': '',
-    },
+        'ENGINE': 'django.db.backends.dummy'
+    }
 }
 
-# SESSION_ENGINE = 'mongoengine.django.sessions' # optional
+AUTHENTICATION_BACKENDS = (
+    'mongoengine.django.auth.MongoEngineBackend',
+)
 
+SESSION_ENGINE = 'mongoengine.django.sessions'
+SESSION_SERIALIZER = 'mongoengine.django.sessions.BSONSerializer'
 
 
 
