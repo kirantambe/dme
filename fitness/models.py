@@ -24,3 +24,16 @@ class Feed(Document):
     type_code = IntField()
     quiz_id = StringField()
     questions = EmbeddedDocumentListField(Question)
+
+
+class User(Document):
+    first_name = StringField(required=True)
+    last_name = StringField(required=True)
+    email = EmailField(required=True)
+    google_id = StringField(required=True)
+    height = IntField()
+    weight = IntField()
+    dob = DateTimeField(required=True)
+    gender = StringField(choices=('male', 'female'))
+    workout_preference = StringField(choices=('get fit', 'weight loss', 'muscle building'))
+    meal_preference = StringField(choices=('veg', 'non veg', 'eggetarian', 'jain'))
