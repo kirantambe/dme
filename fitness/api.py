@@ -3,7 +3,7 @@ from django.http.response import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import View
 
-from fitness.models import Feed, Question, Option, User
+from fitness.models import Feed, User
 
 class FeedListView(View):
     def post(self, *args, **kwargs):
